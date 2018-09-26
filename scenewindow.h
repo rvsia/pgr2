@@ -4,6 +4,7 @@
 #include <QtGui/QMatrix4x4>
 #include <QtGui/QOpenGLBuffer>
 #include "openglwindow.h"
+#include "car.h"
 
 /// Trida, ktera reprezentuje OpenGL okno.
 /// Ta obsahuje zaklad vykreslovani
