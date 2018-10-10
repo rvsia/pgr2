@@ -115,7 +115,7 @@ void SceneWindow::render()
     /// Nesmime zapomenout atributy "zapnout", jinak se nic nevykresli
     m_program->enableAttributeArray("posAttr");
     m_program->enableAttributeArray("colAttr");
-    m_program->enableAttributeArray("movementAttr");
+    //m_program->enableAttributeArray("movementAttr");
 
     /// Nastavime ukazatele pro cteni dat
                                     //name, type, offset, tupleSize, stride
