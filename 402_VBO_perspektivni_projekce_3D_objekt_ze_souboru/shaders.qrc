@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>vshader.vsh</file>
+        <file>fshader.fsh</file>
+        <file>mobile.fsh</file>
+        <file>mobile.vsh</file>
+    </qresource>
+</RCC>

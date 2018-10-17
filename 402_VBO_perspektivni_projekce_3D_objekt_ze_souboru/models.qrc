@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>models/spaceship/spaceship.3ds</file>
+        <file>models/spaceship/spaceshiptexture.bmp</file>
+        <file>models/spaceship/spaceshiptexture.png</file>
+    </qresource>
+</RCC>
