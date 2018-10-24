@@ -12,6 +12,7 @@
 
 #include "openglwindow.h"
 #include "cube.h"
+#include "stihacka.h"
 
 /// Trida, ktera reprezentuje OpenGL okno.
 /// Ta obsahuje zaklad vykreslovani
@@ -42,9 +43,12 @@ private:
     GLuint m_texAttr;
     /// Textura, ktera je aplikovana na objekt
     QOpenGLTexture *m_texture;
+    QOpenGLTexture *m_texture1;
 
     /// Objekt, ktery je soucasti sceny a bude vykreslovan
     Cube* m_cube;
+
+    Stihacka* m_stihacka;
     /// Shader, kteremu budeme posilat data
     QOpenGLShaderProgram *m_program;
 

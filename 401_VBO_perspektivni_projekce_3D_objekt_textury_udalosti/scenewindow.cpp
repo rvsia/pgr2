@@ -12,6 +12,7 @@ SceneWindow::~SceneWindow(){
     delete m_cube;
     /// Uvolnim texturu z pameti
     m_texture->destroy();
+    m_texture1->destroy();
 }
 
 void SceneWindow::initialize()
@@ -37,6 +38,7 @@ void SceneWindow::initialize()
 
     /// Vytvoreni kostky ktera predstavuje scenu
     m_cube = new Cube(1, m_program, m_functions, "a_position", "a_texcoord");
+    m_stihacka = new Stihacka(1, m_program, m_functions, "a_position", "a_texcoord");
 
     /// Inicializuj texturovaci objekt
     initTextures();
@@ -52,7 +54,10 @@ void SceneWindow::initTextures()
     m_texture->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
     m_texture->setMagnificationFilter(QOpenGLTexture::LinearMipMapLinear);
     /// Mam jediny texturovaci objekt, takze to muzu nabindovat hned ted
-    m_texture->bind();
+    ///
+    m_texture1 = new QOpenGLTexture(QImage(":/stihacka.png"));
+    m_texture1->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
+    m_texture1->setMagnificationFilter(QOpenGLTexture::LinearMipMapLinear);
 }
 
 void SceneWindow::render()
@@ -60,6 +65,7 @@ void SceneWindow::render()
     /// Nabindujeme program se shadery
     /// Je dobre to udelat pred vykreslenim, protoze jich muze byt vice
     m_program->bind();
+    m_texture->bind();
 
     /// Nastavime cast okna pres kterou budeme vykreslovat
     const qreal retinaScale = devicePixelRatio();
@@ -70,7 +76,7 @@ void SceneWindow::render()
     /// Udelelame z ni jednotkovou matici
     projectionMatrix.setToIdentity();
     /// Nastavime, aby mela obsah takovy, aby reprezentovalo popsanou projekci
-    projectionMatrix.perspective(30.0f, 4.0f/3.0f, 0.1f, 100.0f);
+    projectionMatrix.perspective(60.0f, 4.0f/3.0f, 0.1f, 100.0f);
 
     /// Vytvorime pohledovou matici
     QMatrix4x4 modelViewMatrix;
@@ -79,8 +85,6 @@ void SceneWindow::render()
     /// Posuneme pocatek souradneho systemu do uvedeneho mista
     modelViewMatrix.translate(-0.5,-0.5,-13.0);
     /// Otocime souradny system
-    modelViewMatrix.rotate(m_rotationAngle, 0.0f, 1.0f, 0.0f);
-
     /// Odesleme vynasobenou projekcni a pohledovou matici pro prvni objekt
     m_program->setUniformValue(m_matrixUniform, projectionMatrix * modelViewMatrix);
 
@@ -90,15 +94,20 @@ void SceneWindow::render()
     /// Vykreslime kostku
     m_cube->draw();
 
-    /// posuneme jeste jednou souradny system
-    modelViewMatrix.setToIdentity();
-    modelViewMatrix.translate(-1,-1,-10.0);
-    modelViewMatrix.rotate(m_rotation);
-    /// odesleme upravenou pohledovou matici
+    m_texture1->bind();
+
+    //modelViewMatrix.translate(0.5,0.5,.0);
+
+    modelViewMatrix.translate(5,2,-20.0);
+    modelViewMatrix.rotate(m_rotationAngle, 0, -1, 0);
+    modelViewMatrix.translate(5,0,10.0);
+
+
     m_program->setUniformValue(m_matrixUniform, projectionMatrix * modelViewMatrix);
 
-    /// a znovu vykreslime kostku
-    m_cube->draw();
+
+
+    m_stihacka->draw();
 
     /// Uvolnime program
     m_program->release();
