@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/scenegraph">
+        <file>main.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>shaders/fshader.fsh</file>
+        <file>shaders/vshader.vsh</file>
+        <file>textures/blood.png</file>
+        <file>textures/cube.png</file>
+    </qresource>
+</RCC>

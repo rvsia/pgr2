@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/scenegraph">
+        <file>main.qml</file>
+        <file>MoveButton.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>shaders/fshader.fsh</file>
+        <file>shaders/vshader.vsh</file>
+        <file>cube.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/scenegraph">
+        <file>main.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>shaders/basic.frag</file>
+        <file>shaders/basic.vert</file>
+        <file>shaders/fshader.fsh</file>
+        <file>shaders/vshader.vsh</file>
+        <file>textures/sp3back.jpg</file>
+        <file>textures/sp3front.jpg</file>
+        <file>textures/sp3left.jpg</file>
+        <file>textures/sp3right.jpg</file>
+        <file>textures/sp3top.jpg</file>
+        <file>textures/sp3bot.jpg</file>
+    </qresource>
+</RCC>
