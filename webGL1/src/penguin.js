@@ -6,12 +6,12 @@ class Penguin {
         const that = this;
         that.penguin = undefined;
 
-        Mtlloader.load( 'Mesh_Penguin.mtl', function ( mtl ) {
+        Mtlloader.load( 'koruna.mtl', function ( mtl ) {
             mtl.preload();
             loader.setMaterials(mtl);
-            loader.load( 'Mesh_Penguin.obj', function ( obj ) {
+            loader.load( 'koruna.obj', function ( obj ) {
                 obj.position.set(0, 0, 0);
-                obj.scale.set(1, 1, 1);
+                obj.scale.set(0.1, 0.1, 0.1);
                 obj.rotation.y = THREE.Math.degToRad(90);
 
                 scene.add( obj );

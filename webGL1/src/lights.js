@@ -3,7 +3,7 @@ class Lights {
         this.scene = scene;
 
         var color = new THREE.Color(0xffffff);
-        var light = new THREE.AmbientLight(color, 1.0);
+        var light = new THREE.AmbientLight(color, 0.2);
         //light.position.set(5,5,5);
         light.positionX = 5;
         light.positionY = 5;
@@ -14,7 +14,7 @@ class Lights {
     }
 
     switchOn() {
-        this.light.intensity = 1.0;
+        this.light.intensity = 0.1;
     }
 
     switchOff() {
